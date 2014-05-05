@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
 gem 'bcrypt'
+gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'ember-data-source', '~> 1.0.0.beta.7'
