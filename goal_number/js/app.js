@@ -27,15 +27,17 @@ App.GameController = Ember.ArrayController.extend({
   actions: {
     add1: function(){
       var store = this.get('store');
-      var number = $('#num').val();
-      console.log(this)
-      console.log(this.number)
-      var store = this.get('store');
-      var team = store.createRecord('team',{
-          name : name
-      });
-      team.save();
-      this.transitionToRoute('teams');
+      var num = 1
+
+      var game = this.get('model');
+      console.log(game)
+      debugger;
+      var currentnum =  game['number']
+
+
+      console.log(currentnum);
+
+
     }
   }
 });
