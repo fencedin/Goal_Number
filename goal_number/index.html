@@ -25,9 +25,8 @@
     <div>
     {{#each}}
       Currently at [{{number}}]
-      <button>[{{number}}]+1</button>
-      <button>[{{number}}]-5</button>
-      <button>[{{number}}]*3</button>
+      <button id="plus1" {{action 'add1'}}>+1</button>
+      <button id="minus5" {{action 'sub5'}}>-5</button>
       Goal: [{{goal}}]
       {{/each}}
     </div>
