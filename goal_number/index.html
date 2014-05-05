@@ -8,19 +8,29 @@
 </head>
 <body>
   <script type="text/x-handlebars">
-    <h1>Goal Number</h1>
-
-    {{outlet}}
+    <div>
+      {{#link-to 'index' tagName='h1'}}Goal Number{{/link-to}}
+      {{#link-to 'game' class="button"}}Click to start{{/link-to}}
+      {{outlet main}}
+    </div>
   </script>
 
-  <script type="text/x-handlebars" id="index">
-    <button>Click to start</button>
+  <script type="text/x-handlebars" id="index/index">
+    <div>
+      <p>click ^ to start</p>
+    </div>
   </script>
 
   <script type="text/x-handlebars" id="game">
-    <button>+1</button>
-    <button>-5</button>
-    <button>*3</button>
+    <div>
+    {{#each}}
+      Currently at [{{number}}]
+      <button>[{{number}}]+1</button>
+      <button>[{{number}}]-5</button>
+      <button>[{{number}}]*3</button>
+      Goal: [{{goal}}]
+      {{/each}}
+    </div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
@@ -28,6 +38,7 @@
   <script src="js/libs/ember-1.5.1.js"></script>
   <script src="js/libs/ember-data.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/models/game.js"></script>
 
   <script src="tests/runner.js"></script>
 </body>

@@ -1,23 +1,29 @@
-App = Ember.Application.create();
+App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
 App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
+
+// ------ROUTER-----------------------
 App.Router.map(function() {
-  // put your routes here
+  this.resource('index', { path: '/' }, function(){
+    this.resource('game', {path: '/game'});
+  });
 });
 
-App.IndexRoute = Ember.Route.extend({
-  model: function() {
 
+// --------ROUTES---------------------
+App.GameRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render({ outlet: 'main' });
+  },
+  model: function() {
+    return this.store.find('game');
   }
 });
 
 
+// --------CONTROLLERS---------------------
+App.GameController = Ember.ArrayController.extend({
 
-
-App.Game.FIXTURES = [
- {
-   id: 1,
-   number: '1',
-   goal: '1000'
- }
-];
+});
