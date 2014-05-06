@@ -1,11 +1,12 @@
 package main
 
 import (
+  "log"
   "net/http"
   "os"
 )
 
 func main() {
-        panic(http.ListenAndServe(":" + os.Getenv("PORT"),
-          http.FileServer(http.Dir("goal_number"))))
+        log.Fatal(http.ListenAndServe(":" + os.Getenv("PORT"),
+          http.FileServer(http.Dir("./goal_number"))))
 }
