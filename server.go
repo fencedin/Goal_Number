@@ -7,5 +7,5 @@ import (
 
 func main() {
         panic(http.ListenAndServe(":" + os.Getenv("PORT"),
-          http.FileServer(http.Dir("./goal_number"))))
+          http.FileServer(http.Dir("goal_number"))))
 }
