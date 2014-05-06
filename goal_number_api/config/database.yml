@@ -1,7 +1,0 @@
-development:
-  adapter: postgresql
-  database: goal_number_api_development
-
-test:
-  adapter: postgresql
-  database: goal_number_api_test
