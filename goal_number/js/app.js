@@ -29,7 +29,8 @@ App.GameController = Ember.ObjectController.extend({
     add: function(){
       var num = this.get('number');
       var rand = this.get('randNum');
-      num = eval("num + rand");
+      num += rand;
+      num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
       current.set('rand', rand)
@@ -40,6 +41,7 @@ App.GameController = Ember.ObjectController.extend({
       var num = this.get('number');
       var rand = this.get('randNum');
       num -= rand;
+      num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
       current.set('rand', rand)
@@ -50,6 +52,7 @@ App.GameController = Ember.ObjectController.extend({
       var num = this.get('number');
       var rand = this.get('randNum');
       num *= rand;
+      num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
       current.set('rand', rand)
@@ -79,7 +82,7 @@ App.Game = Ember.Object.extend({
     return this.get('number') + ' ' + this.get('goal');
   }.property('number', 'goal'),
   randNum: function() {
-    return Math.floor((Math.random() * 9) + 1);
+    return ((Math.random() * 9) + 1);
   }.property('rand')
 });
 
@@ -88,4 +91,9 @@ var newGame = App.Game.create({
   goal:  1000,
   rand: 1,
   win: false
+});
+
+
+Ember.Handlebars.helper('floor', function(input) {
+  return Math.floor(input);
 });
