@@ -4,31 +4,37 @@
   <meta charset="utf-8">
   <title>Goal Number</title>
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <script type="text/x-handlebars">
-    <div>
+    <div class="container">
       {{#link-to 'index' tagName='h1'}}Goal Number{{/link-to}}
-      {{#link-to 'game' class="button"}}Click to start{{/link-to}}
-      {{outlet main}}
+      <hr>
+      <div class="col-md-2">
+        {{#link-to 'game' class="btn btn-primary btn-lg"}}New Game{{/link-to}}
+      </div>
+      <div class="col-md-6">
+        {{outlet main}}
+      </div>
     </div>
   </script>
 
   <script type="text/x-handlebars" id="index/index">
     <div>
-      <p>click ^ to start</p>
+      <button class="btn btn-lg btn-warning"><--- click to start a new game</button>
     </div>
   </script>
 
   <script type="text/x-handlebars" id="game">
-    <div>
-    {{#each}}
-      Currently at [{{number}}]
-      <button id="plus1" {{action 'add1'}}>+1</button>
-      <button id="minus5" {{action 'sub5'}}>-5</button>
-      Goal: [{{goal}}]
-      {{/each}}
+    <button class="btn btn-lg btn-info">Your number: {{number}}</button><button class="btn btn-lg btn-success">Goal: {{goal}}</button><br><br>
+    <div class="btn-group">
+      <button id="plus1" class="btn btn-lg btn-default" {{action 'add'}}>+</button>
+      <button id="minus5" class="btn btn-lg btn-default" {{action 'sub'}}>-</button>
+      <button id="multiply3" class="btn btn-lg btn-default" {{action 'tim'}}>x</button>
+      <button id="multiply3" class="btn btn-lg btn-default" {{action 'div'}}>/</button>
+      <button class="btn btn-lg btn-warning">{{randNum}}</button>
     </div>
   </script>
 
