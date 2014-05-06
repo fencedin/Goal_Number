@@ -26,7 +26,10 @@ App.GameRoute = Ember.Route.extend({
 // --------CONTROLLERS---------------------
 App.GameController = Ember.ObjectController.extend({
   actions: {
-    add: function(){
+    start: function() {
+
+    },
+    add: function() {
       var num = this.get('number');
       var rand = this.get('randNum');
       num += rand;
@@ -37,7 +40,7 @@ App.GameController = Ember.ObjectController.extend({
       current.save
       if (current.get('number') === 1000) { current.set('win', true) }
     },
-    sub: function(){
+    sub: function() {
       var num = this.get('number');
       var rand = this.get('randNum');
       num -= rand;
@@ -48,7 +51,7 @@ App.GameController = Ember.ObjectController.extend({
       current.save
       if (current.get('number') === 1000) { current.set('win', true) }
     },
-    tim: function(){
+    tim: function() {
       var num = this.get('number');
       var rand = this.get('randNum');
       num *= rand;
@@ -59,7 +62,7 @@ App.GameController = Ember.ObjectController.extend({
       current.save
       if (current.get('number') === 1000) { current.set('win', true) }
     },
-    div: function(){
+    div: function() {
       var num = this.get('number');
       var rand = this.get('randNum');
       num /= rand;
