@@ -28,36 +28,44 @@ App.GameController = Ember.ObjectController.extend({
   actions: {
     add: function(){
       var num = this.get('number');
-      num += Math.floor((Math.random() * 9) + 1);
+      var rand = this.get('randNum');
+      num = eval("num + rand");
       var current = this.get('model');
       current.set('number', num)
+      current.set('rand', rand)
       current.save
-      console.log(this.get('number'));
+      if (current.get('number') === 1000) { current.set('win', true) }
     },
     sub: function(){
       var num = this.get('number');
-      num -= Math.floor((Math.random() * 9) + 1);
+      var rand = this.get('randNum');
+      num -= rand;
       var current = this.get('model');
       current.set('number', num)
+      current.set('rand', rand)
       current.save
-      console.log(this.get('number'));
+      if (current.get('number') === 1000) { current.set('win', true) }
     },
     tim: function(){
       var num = this.get('number');
-      num *= Math.floor((Math.random() * 9) + 1);
+      var rand = this.get('randNum');
+      num *= rand;
       var current = this.get('model');
       current.set('number', num)
+      current.set('rand', rand)
       current.save
-      console.log(this.get('number'));
+      if (current.get('number') === 1000) { current.set('win', true) }
     },
     div: function(){
       var num = this.get('number');
-      num /= Math.floor((Math.random() * 9) + 1);
+      var rand = this.get('randNum');
+      num /= rand;
       num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
+      current.set('rand', rand)
       current.save
-      console.log(this.get('number'));
+      if (current.get('number') === 1000) { current.set('win', true) }
     }
   }
 });
@@ -66,6 +74,7 @@ App.Game = Ember.Object.extend({
   number: null,
   goal: null,
   rand: null,
+  win: null,
   fullName: function() {
     return this.get('number') + ' ' + this.get('goal');
   }.property('number', 'goal'),
@@ -76,5 +85,7 @@ App.Game = Ember.Object.extend({
 
 var newGame = App.Game.create({
   number: 1,
-  goal:  1000
+  goal:  1000,
+  rand: 1,
+  win: false
 });
