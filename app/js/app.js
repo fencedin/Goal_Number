@@ -17,7 +17,6 @@ App.GameRoute = Ember.Route.extend({
     this.render({ outlet: 'main' });
   },
   model: function() {
-    //console.log(newGame.get('fullName'));
     return newGame;
   }
 });
@@ -27,12 +26,17 @@ App.GameRoute = Ember.Route.extend({
 App.GameController = Ember.ObjectController.extend({
   actions: {
     start: function() {
-
+      console.log("hello");
+      var current = this.get('model');
+      current.set('win', false);
+      current.set('number', 1);
+      current.save
+      this.transitionToRoute('index.index');
     },
     add: function() {
       var num = this.get('number');
       var rand = this.get('randNum');
-      num += rand;
+      num += Math.floor(rand);
       num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
@@ -43,7 +47,7 @@ App.GameController = Ember.ObjectController.extend({
     sub: function() {
       var num = this.get('number');
       var rand = this.get('randNum');
-      num -= rand;
+      num -= Math.floor(rand);
       num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
@@ -54,7 +58,7 @@ App.GameController = Ember.ObjectController.extend({
     tim: function() {
       var num = this.get('number');
       var rand = this.get('randNum');
-      num *= rand;
+      num *= Math.floor(rand);
       num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
@@ -65,7 +69,7 @@ App.GameController = Ember.ObjectController.extend({
     div: function() {
       var num = this.get('number');
       var rand = this.get('randNum');
-      num /= rand;
+      num /= Math.floor(rand);
       num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
@@ -81,9 +85,6 @@ App.Game = Ember.Object.extend({
   goal: null,
   rand: null,
   win: null,
-  fullName: function() {
-    return this.get('number') + ' ' + this.get('goal');
-  }.property('number', 'goal'),
   randNum: function() {
     return ((Math.random() * 9) + 1);
   }.property('rand')
