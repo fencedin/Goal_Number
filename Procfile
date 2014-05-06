@@ -1,1 +1,1 @@
-web: goal_number
+web: server
