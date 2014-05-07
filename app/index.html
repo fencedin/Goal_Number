@@ -62,16 +62,16 @@
             </div>
             <div class="row">
               <div class="col-md-3">
-                <button class="btn btn-lg btn-warning" {{action 'add'}}><h1>+ {{floor randNum}}</h1></button><br><br>
+                <button class="btn btn-lg btn-warning" {{action 'doWork' '+'}}><h1>+ {{floor randNum}}</h1></button><br><br>
               </div>
               <div class="col-md-3">
-                <button class="btn btn-lg btn-warning" {{action 'sub'}}><h1>- {{floor randNum}}</h1></button><br><br>
+                <button class="btn btn-lg btn-warning" {{action 'doWork' '-'}}><h1>- {{floor randNum}}</h1></button><br><br>
               </div>
               <div class="col-md-3">
-                <button class="btn btn-lg btn-warning" {{action 'tim'}}><h1>x {{floor randNum}}</h1></button><br><br>
+                <button class="btn btn-lg btn-warning" {{action 'doWork' '*'}}><h1>x {{floor randNum}}</h1></button><br><br>
               </div>
               <div class="col-md-3">
-                <button class="btn btn-lg btn-warning" {{action 'div'}}><h1>/ {{floor randNum}}</h1></button><br><br>
+                <button class="btn btn-lg btn-warning" {{action 'doWork' '/'}}><h1>/ {{floor randNum}}</h1></button><br><br>
               </div>
             </div>
           </div>

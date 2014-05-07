@@ -2,6 +2,7 @@ App = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
 
+
 // ------ROUTER-----------------------
 App.Router.map(function() {
   this.resource('game', {path: '/'});
@@ -27,55 +28,38 @@ App.GameController = Ember.ObjectController.extend({
       game.set("number", 1);
       game.set("win", false);
       game.save
-      this.transitionToRoute('game', game);
+    },
+    doWork: function(op) {
+      var num = this.get('number');
+      var rand = this.get('randNum');
+      if      (op === '+') { num = num + Math.floor(rand) }
+      else if (op === '-') { num = num - Math.floor(rand) }
+      else if (op === '*') { num = num * Math.floor(rand) }
+      else if (op === '/') { num = num / Math.floor(rand) }
+      num = Math.floor(num);
+      var current = this.get('model');
+      current.set('number', num)
+      current.set('rand', rand)
+      current.save
+      if (current.get('number') === 1000) { current.set('win', true) }
     },
     add: function() {
-      var num = this.get('number');
-      var rand = this.get('randNum');
-      num += Math.floor(rand);
-      num = Math.floor(num);
-      var current = this.get('model');
-      current.set('number', num)
-      current.set('rand', rand)
-      current.save
-      if (current.get('number') === 1000) { current.set('win', true) }
+      App.GameController.doWork("+");
     },
     sub: function() {
-      var num = this.get('number');
-      var rand = this.get('randNum');
-      num -= Math.floor(rand);
-      num = Math.floor(num);
-      var current = this.get('model');
-      current.set('number', num)
-      current.set('rand', rand)
-      current.save
-      if (current.get('number') === 1000) { current.set('win', true) }
+      App.GameController.doWork("-");
     },
     tim: function() {
-      var num = this.get('number');
-      var rand = this.get('randNum');
-      num *= Math.floor(rand);
-      num = Math.floor(num);
-      var current = this.get('model');
-      current.set('number', num)
-      current.set('rand', rand)
-      current.save
-      if (current.get('number') === 1000) { current.set('win', true) }
+      App.GameController.doWork("*");
     },
     div: function() {
-      var num = this.get('number');
-      var rand = this.get('randNum');
-      num /= Math.floor(rand);
-      num = Math.floor(num);
-      var current = this.get('model');
-      current.set('number', num)
-      current.set('rand', rand)
-      current.save
-      if (current.get('number') === 1000) { current.set('win', true) }
+      App.GameController.doWork("/");
     }
   }
 });
 
+
+// ------MODELS-----------------------
 App.Game = Ember.Object.extend({
   number: null,
   goal: null,
@@ -94,6 +78,7 @@ var newGame = App.Game.create({
 });
 
 
+// ------HELPERS-----------------------
 Ember.Handlebars.helper('floor', function(input) {
   return Math.floor(input);
 });
