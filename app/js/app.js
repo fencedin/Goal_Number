@@ -5,9 +5,7 @@ App = Ember.Application.create({
 
 // ------ROUTER-----------------------
 App.Router.map(function() {
-  this.resource('index', { path: '/' }, function(){
-    this.resource('game', {path: '/game'});
-  });
+  this.resource('game', {path: '/'});
 });
 
 
@@ -23,15 +21,21 @@ App.GameRoute = Ember.Route.extend({
 
 
 // --------CONTROLLERS---------------------
+App.ApplicationController = Ember.ObjectController.extend({
+  needs: "game",
+  // game: Ember.computed.alias("controllers.game"),
+  actions: {
+
+  }
+});
 App.GameController = Ember.ObjectController.extend({
   actions: {
-    start: function() {
-      console.log("hello");
-      var current = this.get('model');
-      current.set('win', false);
-      current.set('number', 1);
-      current.save
-      this.transitionToRoute('index.index');
+    startNew: function() {
+      var game = this.get('model');
+      game.set("number", 1);
+      game.set("win", false);
+      game.save
+      this.transitionToRoute('game', game);
     },
     add: function() {
       var num = this.get('number');

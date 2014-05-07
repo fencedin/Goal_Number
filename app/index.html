@@ -11,27 +11,23 @@
 <body>
   <script type="text/x-handlebars">
     <div class="container">
-      {{#link-to 'index' tagName='h1' class="jumbotron"}}Goal Number{{/link-to}}
-      <hr>
-      <div class="col-md-2">
-        {{#link-to 'game' class="btn btn-primary btn-lg"}}<!--{{action start}}-->New Game{{/link-to}}
-      </div>
-      <div class="col-md-8">
-        {{outlet main}}
-      </div>
+    <div class="jumbotron">
+      <h1>GOAL NUMBER</h1>
     </div>
-  </script>
-
-  <script type="text/x-handlebars" id="index/index">
-    <div>
-      <button class="btn btn-lg btn-warning"><--- click to start a new game</button>
+      <hr>
+      {{outlet main}}
     </div>
   </script>
 
   <script type="text/x-handlebars" id="game">
-
-    {{#if win}}
-      <div class="jumbotron"><h1 class="text-center">You Win!</h1><pre>                                           .''.
+    <div class="col-md-2">
+      <button {{action 'startNew'}} class="btn btn-primary btn-lg">New Game</button>
+    </div>
+    <div class="col-md-8">
+      {{#if win}}
+        <div class="jumbotron"><h1 class="text-center">You Win!</h1>
+          <pre>
+                                                 .''.
                .''.      .        *''*    :_\/_:     .
               :_\/_:   _\(/_  .:.*_\/_*   : /\ :  .'.:.'.
           .''.: /\ :    /)\   ':'* /\ *  : '..'.  -=:o:=-
@@ -49,17 +45,36 @@
                 _-H-__  -~-~-~-~-~-~     /_|\    -~======-~
         ~-\XXXXXXXXXX/~     ~-~-~-~     /__|_\ ~-~-~-~
         ~-~-~-~-~-~    ~-~~-~-~-~-~    ========  ~-~-~-~"
-      </pre></div>
-    {{else}}
-      <button class="btn btn-lg btn-info"><h1>Your number : {{number}}</h1></button> <button class=    "btn btn-lg btn-success"><h1>Goal : {{goal}}</h1></button><br><br>
-      <div class="btn-group">
-        <button id="plus1" class="btn btn-lg btn-default" {{action 'add'}}><h1>+</h1></button>
-        <button id="minus5" class="btn btn-lg btn-default" {{action 'sub'}}><h1>-</h1></button>
-        <button id="multiply3" class="btn btn-lg btn-default" {{action 'tim'}}><h1>x</h1></button>
-        <button id="multiply3" class="btn btn-lg btn-default" {{action 'div'}}><h1>/</h1></button>
-        <button class="btn btn-lg btn-warning"><h1>{{floor randNum}}</h1></button>
-      </div>
-    {{/if}}
+          </pre>
+        </div>
+      {{else}}
+        <div class="row">
+        <div class="col-md-5">
+          <button class="btn btn-lg btn-info"><h1>You : {{number}}</h1></button>
+        </div>
+        <div class="col-md-5">
+          <button class="btn btn-lg btn-success"><h1>Goal : {{goal}}</h1></button><br><br>
+        </div>
+        </div>
+        <div class="row">
+        <div class="btn-group">
+          <button class="btn btn-lg btn-default" {{action 'add'}}><h1>+</h1></button>
+          <button class="btn btn-lg btn-warning" {{action 'add'}}><h1>{{floor randNum}}</h1></button>
+        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <div class="btn-group">
+          <button class="btn btn-lg btn-default" {{action 'sub'}}><h1>-</h1></button>
+          <button class="btn btn-lg btn-warning" {{action 'sub'}}><h1>{{floor randNum}}</h1></button>
+        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <div class="btn-group">
+          <button class="btn btn-lg btn-default" {{action 'tim'}}><h1>x</h1></button>
+          <button class="btn btn-lg btn-warning" {{action 'tim'}}><h1>{{floor randNum}}</h1></button>
+        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <div class="btn-group">
+          <button class="btn btn-lg btn-default" {{action 'div'}}><h1>/</h1></button>
+          <button class="btn btn-lg btn-warning" {{action 'div'}}><h1>{{floor randNum}}</h1></button>
+        </div>
+      {{/if}}
+    </div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
