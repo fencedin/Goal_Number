@@ -27,10 +27,14 @@ App.GameController = Ember.ObjectController.extend({
       var game = this.get('model');
       game.set("number", 1);
       game.set("win", false);
+      game.set("clicks", 0);
       game.save
     },
     doWork: function(op) {
       var num = this.get('number');
+      var clicks = this.get('clicks');
+      clicks += 1;
+      var score = this.get('score');
       var randa = this.get('randNumA');
       var rands = this.get('randNumS');
       var randt = this.get('randNumT');
@@ -42,12 +46,17 @@ App.GameController = Ember.ObjectController.extend({
       num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
+      current.set('clicks', clicks)
       current.set('randa', randa)
       current.set('rands', rands)
       current.set('randt', randt)
       current.set('randd', randd)
       current.save
-      if (current.get('number') === 1000) { current.set('win', true) }
+      if (current.get('number') === 1000) {
+        score = Math.floor((Math.pow(((1004 - clicks)/(clicks/100)), 3))/1000000);
+        current.set('score', score);
+        current.set('win', true);
+      }
     }
   }
 });
@@ -61,6 +70,8 @@ App.Game = Ember.Object.extend({
   rands: null,
   randt: null,
   randd: null,
+  clicks: null,
+  score: null,
   win: null,
   randNumA: function() {
     return ((Math.random() * 9) + 1);
@@ -83,6 +94,8 @@ var newGame = App.Game.create({
   rands: 1,
   randt: 1,
   randd: 1,
+  clicks: 0,
+  score: 0,
   win: false
 });
 
