@@ -20,8 +20,11 @@
 
   <script type="text/x-handlebars" id="game">
     <div class="col-md-2">
-      <button {{action 'startNew'}} class="btn btn-primary btn-lg">New Game</button>
+      <div class="col-md-2">
+        <button {{action 'startNew'}} class="btn btn-primary btn-lg"><h4>New Game</h4></button><br><br>
+      </div>
     </div>
+
     <div class="col-md-8">
       {{#if win}}
         <div class="jumbotron"><h1 class="text-center">You Win!</h1>
@@ -47,37 +50,29 @@
           </pre>
         </div>
       {{else}}
-        <div class="row">
-          <div class="col-md-5">
-            <button class="btn btn-lg btn-info"><h1>You : {{number}}</h1></button>
-          </div>
-          <div class="col-md-5">
-            <button class="btn btn-lg btn-success"><h1>Goal : {{goal}}</h1></button><br><br>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="btn-group">
-              <button class="btn btn-lg btn-default" {{action 'add'}}><h1>+</h1></button>
-              <button class="btn btn-lg btn-warning" {{action 'add'}}><h1>{{floor randNum}}</h1></button>
+        <div class="col-md-12">
+          <div class="well">
+            <div class="row">
+              <div class="col-md-6">
+                <button class="btn btn-lg btn-info"><h1>You : {{number}}</h1></button><br><br>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-lg btn-success"><h1>Goal : {{goal}}</h1></button><br><br>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="btn-group">
-              <button class="btn btn-lg btn-default" {{action 'sub'}}><h1>-</h1></button>
-              <button class="btn btn-lg btn-warning" {{action 'sub'}}><h1>{{floor randNum}}</h1></button>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="btn-group">
-              <button class="btn btn-lg btn-default" {{action 'tim'}}><h1>x</h1></button>
-              <button class="btn btn-lg btn-warning" {{action 'tim'}}><h1>{{floor randNum}}</h1></button>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="btn-group">
-              <button class="btn btn-lg btn-default" {{action 'div'}}><h1>/</h1></button>
-              <button class="btn btn-lg btn-warning" {{action 'div'}}><h1>{{floor randNum}}</h1></button>
+            <div class="row">
+              <div class="col-md-3">
+                <button class="btn btn-lg btn-warning" {{action 'add'}}><h1>+ {{floor randNum}}</h1></button><br><br>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-lg btn-warning" {{action 'sub'}}><h1>- {{floor randNum}}</h1></button><br><br>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-lg btn-warning" {{action 'tim'}}><h1>x {{floor randNum}}</h1></button><br><br>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-lg btn-warning" {{action 'div'}}><h1>/ {{floor randNum}}</h1></button><br><br>
+              </div>
             </div>
           </div>
         </div>
