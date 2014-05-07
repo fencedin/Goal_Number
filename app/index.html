@@ -11,10 +11,9 @@
 <body>
   <script type="text/x-handlebars">
     <div class="container">
-    <div class="jumbotron">
-      <h1>GOAL NUMBER</h1>
-    </div>
-      <hr>
+      <div class="jumbotron">
+        <h1># GOAL NUMBER #</h1>
+      </div>
       {{outlet main}}
     </div>
   </script>
@@ -49,29 +48,38 @@
         </div>
       {{else}}
         <div class="row">
-        <div class="col-md-5">
-          <button class="btn btn-lg btn-info"><h1>You : {{number}}</h1></button>
-        </div>
-        <div class="col-md-5">
-          <button class="btn btn-lg btn-success"><h1>Goal : {{goal}}</h1></button><br><br>
-        </div>
+          <div class="col-md-5">
+            <button class="btn btn-lg btn-info"><h1>You : {{number}}</h1></button>
+          </div>
+          <div class="col-md-5">
+            <button class="btn btn-lg btn-success"><h1>Goal : {{goal}}</h1></button><br><br>
+          </div>
         </div>
         <div class="row">
-        <div class="btn-group">
-          <button class="btn btn-lg btn-default" {{action 'add'}}><h1>+</h1></button>
-          <button class="btn btn-lg btn-warning" {{action 'add'}}><h1>{{floor randNum}}</h1></button>
-        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <div class="btn-group">
-          <button class="btn btn-lg btn-default" {{action 'sub'}}><h1>-</h1></button>
-          <button class="btn btn-lg btn-warning" {{action 'sub'}}><h1>{{floor randNum}}</h1></button>
-        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <div class="btn-group">
-          <button class="btn btn-lg btn-default" {{action 'tim'}}><h1>x</h1></button>
-          <button class="btn btn-lg btn-warning" {{action 'tim'}}><h1>{{floor randNum}}</h1></button>
-        </div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <div class="btn-group">
-          <button class="btn btn-lg btn-default" {{action 'div'}}><h1>/</h1></button>
-          <button class="btn btn-lg btn-warning" {{action 'div'}}><h1>{{floor randNum}}</h1></button>
+          <div class="col-md-3">
+            <div class="btn-group">
+              <button class="btn btn-lg btn-default" {{action 'add'}}><h1>+</h1></button>
+              <button class="btn btn-lg btn-warning" {{action 'add'}}><h1>{{floor randNum}}</h1></button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="btn-group">
+              <button class="btn btn-lg btn-default" {{action 'sub'}}><h1>-</h1></button>
+              <button class="btn btn-lg btn-warning" {{action 'sub'}}><h1>{{floor randNum}}</h1></button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="btn-group">
+              <button class="btn btn-lg btn-default" {{action 'tim'}}><h1>x</h1></button>
+              <button class="btn btn-lg btn-warning" {{action 'tim'}}><h1>{{floor randNum}}</h1></button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="btn-group">
+              <button class="btn btn-lg btn-default" {{action 'div'}}><h1>/</h1></button>
+              <button class="btn btn-lg btn-warning" {{action 'div'}}><h1>{{floor randNum}}</h1></button>
+            </div>
+          </div>
         </div>
       {{/if}}
     </div>
@@ -80,8 +88,6 @@
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="js/libs/ember-1.5.1.js"></script>
-  <script src="js/libs/ember-data.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/models/game.js"></script>
 </body>
 </html>

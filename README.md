@@ -17,7 +17,7 @@ Goal Number is provided under the MIT License.
 ----------------------
 
 game:
-* game will have 3 boxes with random operators ann numbers
+* game will have 3 boxes with random operators and numbers
 * game will preform selected operator on the players number
 
 player:
