@@ -1,21 +1,31 @@
 Goal Number
 ===========
 
--insert readme here-
+Goal Number is a web app using Ember. it is a game where you start at the number 1 and try to get to the goal by using random numbers and operators.
+
+Demo: [here](http://goal-number.herokuapp.com)
 
 
-dev notes
----------
+
+License
+-------
+
+Goal Number is provided under the MIT License.
+
+
+### User stories for development
+----------------------
 
 game:
-  game will have 3 boxes
-  each box will have a random operator
-  game will preform operator on the players number
+* game will have 3 boxes with random operators ann numbers
+* game will preform selected operator on the players number
 
 player:
-  player starts at 1
+* player starts at number 1
+* players will get a score based on clicks whn they reach goal
 
 goal:
-  player needs to get to 1000
-  player needs to get to random number that is set at start
-  number of operators will determine score
+* player needs to get to 1000
+* number of operators will determine score
+
+
