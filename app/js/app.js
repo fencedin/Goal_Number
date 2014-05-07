@@ -31,29 +31,23 @@ App.GameController = Ember.ObjectController.extend({
     },
     doWork: function(op) {
       var num = this.get('number');
-      var rand = this.get('randNum');
-      if      (op === '+') { num = num + Math.floor(rand) }
-      else if (op === '-') { num = num - Math.floor(rand) }
-      else if (op === '*') { num = num * Math.floor(rand) }
-      else if (op === '/') { num = num / Math.floor(rand) }
+      var randa = this.get('randNumA');
+      var rands = this.get('randNumS');
+      var randt = this.get('randNumT');
+      var randd = this.get('randNumD');
+      if      (op === '+')  { num += Math.floor(randa) }
+      else if (op === '-')  { num -= Math.floor(rands) }
+      else if (op === '*')  { num *= Math.floor(randt) }
+      else  /*(op === '/')*/{ num /= Math.floor(randd) }
       num = Math.floor(num);
       var current = this.get('model');
       current.set('number', num)
-      current.set('rand', rand)
+      current.set('randa', randa)
+      current.set('rands', rands)
+      current.set('randt', randt)
+      current.set('randd', randd)
       current.save
       if (current.get('number') === 1000) { current.set('win', true) }
-    },
-    add: function() {
-      App.GameController.doWork("+");
-    },
-    sub: function() {
-      App.GameController.doWork("-");
-    },
-    tim: function() {
-      App.GameController.doWork("*");
-    },
-    div: function() {
-      App.GameController.doWork("/");
     }
   }
 });
@@ -63,17 +57,32 @@ App.GameController = Ember.ObjectController.extend({
 App.Game = Ember.Object.extend({
   number: null,
   goal: null,
-  rand: null,
+  randa: null,
+  rands: null,
+  randt: null,
+  randd: null,
   win: null,
-  randNum: function() {
+  randNumA: function() {
     return ((Math.random() * 9) + 1);
-  }.property('rand')
+  }.property('randa'),
+  randNumS: function() {
+    return ((Math.random() * 9) + 1);
+  }.property('rands'),
+  randNumT: function() {
+    return ((Math.random() * 9) + 1);
+  }.property('randt'),
+  randNumD: function() {
+    return ((Math.random() * 9) + 1);
+  }.property('randd')
 });
 
 var newGame = App.Game.create({
   number: 1,
   goal:  1000,
-  rand: 1,
+  randa: 1,
+  rands: 1,
+  randt: 1,
+  randd: 1,
   win: false
 });
 
