@@ -1,7 +1,6 @@
 App = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
-// App.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 // ------ROUTER-----------------------
 App.Router.map(function() {
@@ -21,13 +20,6 @@ App.GameRoute = Ember.Route.extend({
 
 
 // --------CONTROLLERS---------------------
-App.ApplicationController = Ember.ObjectController.extend({
-  needs: "game",
-  // game: Ember.computed.alias("controllers.game"),
-  actions: {
-
-  }
-});
 App.GameController = Ember.ObjectController.extend({
   actions: {
     startNew: function() {
