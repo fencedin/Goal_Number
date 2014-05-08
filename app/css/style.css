@@ -2,3 +2,131 @@
 .ember-application {
     margin: 20px;
 }
+
+table {
+  width: 100%;
+}
+.tg {
+  padding: 15px;
+}
+.col3 {
+  width: 33%;
+}
+
+.title {
+  background: -webkit-gradient(linear, left top, left bottom, from(#3F6EEB), to(#030B60));
+  background: -webkit-linear-gradient(top, #3F6EEB, #030B60);
+  background: -moz-linear-gradient(top, #3F6EEB, #030B60);
+  background: -ms-linear-gradient(top, #3F6EEB, #030B60);
+  background: -o-linear-gradient(top, #3F6EEB, #030B60);
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 48px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.number {
+  background: -webkit-gradient(linear, left top, left bottom, from(#3F92D2), to(#3F5444));
+  background: -webkit-linear-gradient(top, #3F92D2, #3F5444);
+  background: -moz-linear-gradient(top, #3F92D2, #3F5444);
+  background: -ms-linear-gradient(top, #3F92D2, #3F5444);
+  background: -o-linear-gradient(top, #3F92D2, #3F5444);
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.goal {
+  background: -webkit-gradient(linear, left top, left bottom, from(#67E300), to(#60AA00));
+  background: -webkit-linear-gradient(top, #67E300, #60AA00);
+  background: -moz-linear-gradient(top, #67E300, #60AA00);
+  background: -ms-linear-gradient(top, #67E300, #60AA00);
+  background: -o-linear-gradient(top, #67E300, #60AA00);
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.click {
+  background: -webkit-gradient(linear, left top, left bottom, from(#00AF64), to(#3F5444));
+  background: -webkit-linear-gradient(top, #00AF64, #3F5444);
+  background: -moz-linear-gradient(top, #00AF64, #3F5444);
+  background: -ms-linear-gradient(top, #00AF64, #3F5444);
+  background: -o-linear-gradient(top, #00AF64, #3F5444);
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.num {
+  border: 3px white solid;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF7640), to(#D41A00));
+  background: -webkit-linear-gradient(top, #FF7640, #D41A00);
+  background: -moz-linear-gradient(top, #FF7640, #D41A00);
+  background: -ms-linear-gradient(top, #FF7640, #D41A00);
+  background: -o-linear-gradient(top, #FF7640, #D41A00);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 38px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+.num:hover {
+  background: #FF6600;
+  color: #ccc;
+}
+.num:active {
+  background: #A62F00;
+}
+
+.blank {
+  padding: 20px;
+}
+
+.score {
+  background: -webkit-gradient(linear, left top, left bottom, from(#770088), to(#330033));
+  background: -webkit-linear-gradient(top, #770088, #330033);
+  background: -moz-linear-gradient(top, #770088, #330033);
+  background: -ms-linear-gradient(top, #770088, #330033);
+  background: -o-linear-gradient(top, #770088, #330033);
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 38px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.new-game {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0061FF), to(#0B6174));
+  background: -webkit-linear-gradient(top, #0061FF, #0B6174);
+  background: -moz-linear-gradient(top, #0061FF, #0B6174);
+  background: -ms-linear-gradient(top, #0061FF, #0B6174);
+  background: -o-linear-gradient(top, #0061FF, #0B6174);
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+img {
+  height: 75%;
+  width: 100%;
+}

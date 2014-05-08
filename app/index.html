@@ -9,15 +9,20 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<!-- Old HTML Version-->
+
+<!--
   <script type="text/x-handlebars">
     <div class="container">
-      <div class="jumbotron">
-        <h1># GOAL NUMBER #</h1>
+      <div class="well">
+        <h1 class="text-center">GOAL NUMBER</h1>
       </div>
       {{outlet main}}
     </div>
   </script>
-
+ -->
+<!--
   <script type="text/x-handlebars" id="game">
     <div class="col-md-3">
       <div class="col-md-3">
@@ -75,10 +80,10 @@
                   <button class="btn btn-lg btn-warning" {{action 'doWork' '1'}}><h1>{{setBox1}} {{floor randNum1}}</h1></button><br><br>
                 </div>
                 <div class="col-md-4">
-                  <button class="btn btn-lg btn-warning" {{action 'doWork' '2'}}><h1>{{setBox2}}  {{floor randNum2}}</h1></button><br><br>
+                  <button class="btn btn-lg btn-warning" {{action 'doWork' '2'}}><h1>{{setBox2}} {{floor randNum2}}</h1></button><br><br>
                 </div>
                 <div class="col-md-4">
-                  <button class="btn btn-lg btn-warning" {{action 'doWork' '3'}}><h1>{{setBox3}}  {{floor randNum3}}</h1></button><br><br>
+                  <button class="btn btn-lg btn-warning" {{action 'doWork' '3'}}><h1>{{setBox3}} {{floor randNum3}}</h1></button><br><br>
                 </div>
               </div>
             </div>
@@ -95,6 +100,64 @@
         </div>
       {{/if}}
     </div>
+  </script>
+-->
+
+  <script type="text/x-handlebars">
+    <div class="container">
+      <h1 class="text-center">
+        <table class="tg">
+          <tr class="tg">
+            <td colspan="4" class="tg col3 title">Goal Numbr</td>
+          </tr>
+        </table>
+      </h1>
+      {{outlet main}}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="game">
+    <h1 class="text-center">
+      <table class="tg">
+        <tr class="tg">
+          <td colspan="4" class="tg col3 number">#{{number}}</td>
+          <td colspan="4" class="tg col3 goal">►{{goal}}</td>
+          <td colspan="4" class="tg col3 click">@{{clicks}}</td>
+        </tr>
+        <tr class="tg">
+          <td colspan="12" class="blank"></td>
+        </tr>
+
+        {{#if win}}
+          <tr class="tg">
+            <td colspan="12">
+              <img src="fireworks.gif">
+            </td>
+          </tr>
+          <tr class="tg">
+            <td colspan="12" class="tg score">
+              Score {{score}}
+            </td>
+          </tr>
+        {{else}}
+          <tr class="tg">
+            <td colspan="4" {{action 'doWork' '1'}} class="tg col3 num">{{setBox1}} {{floor randNum1}}</td>
+            <td colspan="4" {{action 'doWork' '2'}} class="tg col3 num">{{setBox2}} {{floor randNum2}}</td>
+            <td colspan="4" {{action 'doWork' '3'}} class="tg col3 num">{{setBox3}} {{floor randNum3}}</td>
+          </tr>
+          <tr class="tg">
+            <td colspan="12" {{action 'doWork'}} class="tg num">Re-Roll</td>
+          </tr>
+        {{/if}}
+
+        <tr class="tg">
+          <td colspan="12" class="blank"></td>
+        </tr>
+        <tr class="tg">
+          <td colspan="12" {{action 'startNew'}} class="tg new-game">New Game</td>
+        </tr>
+      </table>
+    </h1>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
